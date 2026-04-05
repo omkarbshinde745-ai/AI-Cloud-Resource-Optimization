@@ -73,7 +73,7 @@ if df_sample['timestamp'].isnull().all():
     df_sample['timestamp'] = pd.date_range(
         end=pd.Timestamp.now(),
         periods=len(df_sample),
-        freq='H'
+        freq='h'
     )
 
 fig = go.Figure()
