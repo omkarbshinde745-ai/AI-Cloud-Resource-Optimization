@@ -159,12 +159,12 @@ st.subheader("🔮 Future CPU Prediction")
 # future = predict_future(model, scaler, df)
 
 
-future = df['cpu_utilization'].tail(5).values + np.random.randint(-5, 5, 5)
+future = df['cpu_utilization'].tail(50).values + np.random.randint(-5, 5, 5)
 fig4 = go.Figure()
 
 # Past CPU
 fig4.add_trace(go.Scatter(
-    y=df['cpu_utilization'].tail(40),
+    y=df['cpu_utilization'].tail(50),
     mode='lines',
     name='Past CPU'
 ))
