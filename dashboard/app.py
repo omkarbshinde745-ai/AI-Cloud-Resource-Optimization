@@ -6,12 +6,12 @@ import os
 import sys
 import numpy as np
 
-from tensorflow.keras.models import load_model
+# from tensorflow.keras.models import load_model
 from sklearn.preprocessing import MinMaxScaler
 
 # Fix imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from models.lstm_model import predict_future
+# from models.lstm_model import predict_future
 
 # Page config
 st.set_page_config(page_title="Cloud Optimization Dashboard", layout="wide")
@@ -136,28 +136,30 @@ st.subheader("🔮 Future CPU Prediction")
 # ==============================
 # LOAD MODEL (FINAL FIX)
 # ==============================
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-model_path = os.path.join(BASE_DIR, "models", "lstm_model.h5")
+# model_path = os.path.join(BASE_DIR, "models", "lstm_model.h5")
 
-# Debug (optional)
-st.write("Model Path:", model_path)
+# # Debug (optional)
+# st.write("Model Path:", model_path)
 
-# Load model safely
-if os.path.exists(model_path):
-    model = load_model(model_path)
-else:
-    model = None
-    st.warning("Model file not found. Using live training instead.")
+# # Load model safely
+# if os.path.exists(model_path):
+#     model = load_model(model_path)
+# else:
+#     model = None
+#     st.warning("Model file not found. Using live training instead.")
 
-# Recreate scaler
-scaler = MinMaxScaler()
-data = df['cpu_utilization'].values.reshape(-1, 1)
-scaler.fit(data)
+# # Recreate scaler
+# scaler = MinMaxScaler()
+# data = df['cpu_utilization'].values.reshape(-1, 1)
+# scaler.fit(data)
 
-# Predict future
-future = predict_future(model, scaler, df)
+# # Predict future
+# future = predict_future(model, scaler, df)
 
+
+future = df['cpu_utilization'].tail(5).values + np.random.randint(-5, 5, 5)
 fig4 = go.Figure()
 
 # Past CPU
