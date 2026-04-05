@@ -164,7 +164,7 @@ fig4 = go.Figure()
 
 # Past CPU
 fig4.add_trace(go.Scatter(
-    y=df['cpu_utilization'].tail(100),
+    y=df['cpu_utilization'].tail(40),
     mode='lines',
     name='Past CPU'
 ))
