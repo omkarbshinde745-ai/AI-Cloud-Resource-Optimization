@@ -7,7 +7,7 @@ import sys
 import numpy as np
 
 # from tensorflow.keras.models import load_model
-from sklearn.preprocessing import MinMaxScaler
+# from sklearn.preprocessing import MinMaxScaler
 
 # Fix imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
